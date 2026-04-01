@@ -39,17 +39,20 @@
             background: var(--green);
             color: white;
             border-bottom: 4px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 28px;
+            padding: 12px 24px;
         }
 
         .emblem {
-            font-size: 2.2rem;
+            font-size: 2rem;
         }
 
         .htxt {
@@ -59,160 +62,88 @@
 
         .htxt h1 {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--gold2);
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .htxt h2 {
-            font-size: 1rem;
+            font-size: .9rem;
             color: #cce8c4;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
-        .htxt p {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: .8rem;
-            color: var(--gold);
-            margin-top: 4px;
-            letter-spacing: 1px;
-        }
-
-        .meta {
+        /* TIMER */
+        .timer-bar {
             background: var(--green2);
             display: flex;
             justify-content: center;
-            gap: 36px;
-            padding: 9px 20px;
+            align-items: center;
+            gap: 20px;
+            padding: 8px 20px;
             font-family: 'Rajdhani', sans-serif;
-            font-size: .9rem;
-            color: #c6e0be;
             flex-wrap: wrap;
         }
 
-        .meta strong {
-            color: var(--gold2);
-        }
-
-        /* SCORE BAR */
-        .scorebar {
-            background: var(--paper);
-            border: 2px solid var(--gold);
-            border-radius: 8px;
-            margin: 20px 28px;
-            padding: 14px 22px;
+        .timer-box {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
+            gap: 8px;
         }
 
-        .score-display {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--green);
-        }
-
-        .score-display span {
-            font-size: .9rem;
-            color: #666;
-            font-weight: 400;
-        }
-
-        .btn {
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
+        .timer-label {
+            font-size: .85rem;
+            color: #c6e0be;
             letter-spacing: 1px;
-            padding: 9px 22px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: .95rem;
-            transition: all .2s;
         }
 
-        .btn-submit {
-            background: var(--green);
+        #timerDisplay {
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--gold2);
-        }
-
-        .btn-submit:hover {
-            background: var(--green2);
-        }
-
-        .btn-reset {
-            background: var(--gold);
-            color: var(--green);
-        }
-
-        .btn-reset:hover {
-            background: var(--gold2);
-        }
-
-        .btn:disabled {
-            opacity: .5;
-            cursor: not-allowed;
-        }
-
-        /* RESULT PANEL */
-        .result-panel {
-            display: none;
-            background: var(--paper);
-            border: 2px solid var(--gold);
-            border-radius: 8px;
-            margin: 0 28px 16px;
-            padding: 16px 22px;
+            letter-spacing: 2px;
+            background: rgba(0, 0, 0, .3);
+            padding: 3px 14px;
+            border-radius: 5px;
+            min-width: 80px;
             text-align: center;
         }
 
-        .result-panel.show {
-            display: block;
+        #timerDisplay.danger {
+            color: #ff6b6b;
+            animation: pulse 1s infinite;
         }
 
-        .result-title {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--green);
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .5
+            }
         }
 
-        .result-stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 10px;
-            flex-wrap: wrap;
+        .answered-count {
+            font-size: .85rem;
+            color: #c6e0be;
         }
 
-        .stat {
-            font-family: 'Rajdhani', sans-serif;
+        .answered-count strong {
+            color: var(--gold2);
             font-size: 1rem;
         }
 
-        .stat .val {
-            font-size: 1.6rem;
-            font-weight: 700;
+        /* TEST PAGE */
+        #testPage {
             display: block;
         }
 
-        .stat.correct .val {
-            color: var(--correct);
-        }
-
-        .stat.wrong .val {
-            color: var(--wrong);
-        }
-
-        .stat.skip .val {
-            color: #888;
-        }
-
-        /* QUESTIONS */
         .qwrap {
-            padding: 0 28px 40px;
+            padding: 16px 24px 20px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -233,43 +164,43 @@
             background: var(--paper);
             border-left: 4px solid var(--gold);
             border-radius: 0 7px 7px 0;
-            margin-bottom: 16px;
-            padding: 15px 18px;
+            margin-bottom: 14px;
+            padding: 14px 16px;
             box-shadow: 0 1px 5px rgba(0, 0, 0, .07);
         }
 
-        .qcard:nth-child(odd) {
+        .qcard:nth-child(even) {
             background: #faf5ea;
         }
 
         .qtop {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: flex-start;
         }
 
         .qnum {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--green);
-            min-width: 30px;
+            min-width: 28px;
         }
 
         .qtext {
-            font-size: 1rem;
+            font-size: .97rem;
             line-height: 1.65;
         }
 
         .options {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-top: 12px;
-            margin-left: 42px;
+            gap: 7px;
+            margin-top: 10px;
+            margin-left: 38px;
         }
 
-        @media(max-width:560px) {
+        @media(max-width:540px) {
             .options {
                 grid-template-columns: 1fr;
             }
@@ -278,13 +209,13 @@
         .opt {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 13px;
+            gap: 9px;
+            padding: 7px 12px;
             border: 2px solid #d4c89a;
             border-radius: 6px;
             cursor: pointer;
-            font-size: .95rem;
-            transition: all .18s;
+            font-size: .93rem;
+            transition: all .15s;
             user-select: none;
             background: white;
         }
@@ -312,20 +243,20 @@
         .opt-key {
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: .98rem;
             color: var(--green);
-            min-width: 18px;
+            min-width: 16px;
         }
 
         .explanation {
             display: none;
-            margin-top: 10px;
-            margin-left: 42px;
-            padding: 10px 14px;
+            margin-top: 9px;
+            margin-left: 38px;
+            padding: 9px 13px;
             background: #f0f8ee;
             border-left: 3px solid var(--correct);
             border-radius: 0 5px 5px 0;
-            font-size: .9rem;
+            font-size: .88rem;
             color: #1a3a1a;
         }
 
@@ -338,6 +269,231 @@
             font-family: 'Rajdhani', sans-serif;
         }
 
+        /* BOTTOM SUBMIT */
+        .bottom-submit {
+            text-align: center;
+            padding: 28px 24px 40px;
+        }
+
+        .btn-submit-big {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 14px 48px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.15rem;
+            background: var(--green);
+            color: var(--gold2);
+            box-shadow: 0 4px 15px rgba(27, 58, 27, .4);
+            transition: all .2s;
+        }
+
+        .btn-submit-big:hover {
+            background: var(--green2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 58, 27, .5);
+        }
+
+        .btn-submit-big:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* RESULT PAGE */
+        #resultPage {
+            display: none;
+        }
+
+        .result-hero {
+            background: var(--green);
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        .result-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .result-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold2);
+            letter-spacing: 2px;
+        }
+
+        .result-score-big {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 10px 0 4px;
+        }
+
+        .result-score-big span {
+            font-size: 1.5rem;
+            color: #cce8c4;
+        }
+
+        .result-pct {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .result-cards {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .rcard {
+            background: var(--paper);
+            border-radius: 10px;
+            padding: 20px 28px;
+            text-align: center;
+            flex: 1;
+            min-width: 130px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+            border-top: 4px solid;
+        }
+
+        .rcard.c-correct {
+            border-color: var(--correct);
+        }
+
+        .rcard.c-wrong {
+            border-color: var(--wrong);
+        }
+
+        .rcard.c-skip {
+            border-color: #999;
+        }
+
+        .rcard.c-time {
+            border-color: var(--gold);
+        }
+
+        .rcard .rval {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .rcard.c-correct .rval {
+            color: var(--correct);
+        }
+
+        .rcard.c-wrong .rval {
+            color: var(--wrong);
+        }
+
+        .rcard.c-skip .rval {
+            color: #888;
+        }
+
+        .rcard.c-time .rval {
+            color: var(--gold);
+            font-size: 1.6rem;
+        }
+
+        .rcard .rlabel {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: .9rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .progress-bar-wrap {
+            max-width: 500px;
+            margin: 0 auto 8px;
+            padding: 0 24px;
+        }
+
+        .progress-bar-wrap label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: .85rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .pbar {
+            height: 10px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pbar-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: var(--correct);
+            transition: width 1s ease;
+        }
+
+        .result-actions {
+            text-align: center;
+            padding: 10px 24px 30px;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 10px 26px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all .2s;
+        }
+
+        .btn-retry {
+            background: var(--green);
+            color: var(--gold2);
+        }
+
+        .btn-retry:hover {
+            background: var(--green2);
+        }
+
+        .btn-review {
+            background: var(--gold);
+            color: var(--green);
+        }
+
+        .btn-review:hover {
+            background: var(--gold2);
+        }
+
+        /* REVIEW SECTION (after result) */
+        #reviewSection {
+            display: none;
+            padding: 0 24px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        #reviewSection.show {
+            display: block;
+        }
+
         .footer {
             background: var(--green);
             color: var(--gold);
@@ -348,61 +504,124 @@
             font-size: .85rem;
             border-top: 3px solid var(--gold);
         }
+
+        /* SKIPPED WARNING */
+        .skip-warning {
+            background: #fff3cd;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin: 0 24px 16px;
+            text-align: center;
+            font-family: 'Rajdhani', sans-serif;
+            display: none;
+        }
+
+        .skip-warning.show {
+            display: block;
+        }
     </style>
 </head>
 
 <body>
 
+    <!-- STICKY HEADER -->
     <div class="header">
         <div class="header-inner">
             <div class="emblem">🪖</div>
             <div class="htxt">
                 <h1>Army Agniveer TD – MCQ Test</h1>
                 <h2>प्राचीन भारतीय इतिहास | Ancient Indian History</h2>
-                <p>✅ सही उत्तर चुनें → Submit करें → Score देखें</p>
             </div>
             <div class="emblem">⚔️</div>
         </div>
-        <div class="meta">
-            <span>📋 प्रश्न: <strong>50</strong></span>
-            <span>⏱ समय: <strong>30 मिनट</strong></span>
-            <span>🏆 अंक: <strong>50</strong></span>
-            <span>❌ नकारात्मक अंकन: <strong>नहीं</strong></span>
+        <div class="timer-bar">
+            <div class="timer-box">
+                <span class="timer-label">⏱ समय बचा:</span>
+                <div id="timerDisplay">30:00</div>
+            </div>
+            <div class="answered-count">उत्तर दिए: <strong id="answeredCount">0</strong> / 50</div>
         </div>
     </div>
 
-    <div class="scorebar">
-        <div class="score-display" id="liveScore">Score: <span>0 / 50</span></div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button class="btn btn-submit" id="submitBtn" onclick="submitTest()">📊 Submit & Check Answers</button>
-            <button class="btn btn-reset" id="resetBtn" onclick="resetTest()">🔄 Reset Test</button>
+    <!-- ===== TEST PAGE ===== -->
+    <div id="testPage">
+        <div class="qwrap">
+            <div class="sec-title">📜 प्राचीन भारतीय इतिहास — MCQ (1–50)</div>
+            <div id="questionsDiv"></div>
+        </div>
+
+        <div class="skip-warning" id="skipWarning">
+            ⚠️ आपने <strong id="skipCount">0</strong> प्रश्न छोड़े हैं। क्या आप फिर भी Submit करना चाहते हैं?
+            <br><br>
+            <button class="btn btn-retry" onclick="confirmSubmit()">हाँ, Submit करें</button>
+            &nbsp;
+            <button class="btn btn-review" onclick="hideWarning()">वापस जाएँ</button>
+        </div>
+
+        <div class="bottom-submit">
+            <button class="btn-submit-big" id="submitBtn" onclick="handleSubmitClick()">
+                📊 Submit &amp; Check Answers
+            </button>
         </div>
     </div>
 
-    <div class="result-panel" id="resultPanel">
-        <div class="result-title" id="resultTitle"></div>
-        <div class="result-stats">
-            <div class="stat correct"><span class="val" id="rCorrect">0</span>✅ सही</div>
-            <div class="stat wrong"><span class="val" id="rWrong">0</span>❌ गलत</div>
-            <div class="stat skip"><span class="val" id="rSkip">0</span>⏭ छोड़े</div>
-            <div class="stat"><span class="val" id="rPct">0%</span>📊 प्रतिशत</div>
+    <!-- ===== RESULT PAGE ===== -->
+    <div id="resultPage">
+        <div class="result-hero">
+            <div class="result-emoji" id="resultEmoji">🏆</div>
+            <div class="result-title" id="resultTitle">शानदार!</div>
+            <div class="result-score-big" id="resultScoreBig">0 <span>/ 50</span></div>
+            <div class="result-pct" id="resultPct">0% सही</div>
         </div>
-    </div>
 
-    <div class="qwrap">
-        <div class="sec-title">📜 प्राचीन भारतीय इतिहास — MCQ (1–50)</div>
-        <div id="questionsDiv"></div>
+        <div class="result-cards">
+            <div class="rcard c-correct">
+                <span class="rval" id="rCorrect">0</span>
+                <div class="rlabel">✅ सही उत्तर</div>
+            </div>
+            <div class="rcard c-wrong">
+                <span class="rval" id="rWrong">0</span>
+                <div class="rlabel">❌ गलत उत्तर</div>
+            </div>
+            <div class="rcard c-skip">
+                <span class="rval" id="rSkip">0</span>
+                <div class="rlabel">⏭ छोड़े</div>
+            </div>
+            <div class="rcard c-time">
+                <span class="rval" id="rTime">—</span>
+                <div class="rlabel">⏱ समय लिया</div>
+            </div>
+        </div>
+
+        <div class="progress-bar-wrap">
+            <label><span>सफलता प्रतिशत</span><span id="pctLabel">0%</span></label>
+            <div class="pbar">
+                <div class="pbar-fill" id="pbarFill" style="width:0%"></div>
+            </div>
+        </div>
+
+        <div class="result-actions">
+            <button class="btn btn-retry" onclick="retryTest()">🔄 दोबारा Test दें</button>
+            <button class="btn btn-review" onclick="toggleReview()">📋 उत्तर देखें / छुपाएँ</button>
+        </div>
+
+        <!-- Review Section -->
+        <div id="reviewSection">
+            <div class="sec-title" style="margin-bottom:14px;">📋 सभी प्रश्नों के सही उत्तर</div>
+            <div id="reviewDiv"></div>
+        </div>
     </div>
 
     <div class="footer">🇮🇳 JAI HIND | ARMY AGNIVEER TD | MCQ PRACTICE TEST 🇮🇳</div>
-    <div class="scorebar">
-        <div class="score-display" id="liveScore">Score: <span>0 / 50</span></div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button class="btn btn-submit" id="submitBtn" onclick="submitTest()">📊 Submit & Check Answers</button>
-            <button class="btn btn-reset" id="resetBtn" onclick="resetTest()">🔄 Reset Test</button>
-        </div>
-    </div>
+
     <script>
+        const TOTAL_TIME = 30 * 60; // 30 minutes in seconds
+        let timeLeft = TOTAL_TIME;
+        let timerInterval = null;
+        let submitted = false;
+        let startTime = Date.now();
+
         const qs = [
             { q: "सिंधु घाटी सभ्यता की खोज किस वर्ष हुई?", opts: ["1901", "1921", "1935", "1947"], ans: 1, exp: "सिंधु घाटी सभ्यता की खोज 1921 में दयाराम साहनी ने हड़प्पा स्थल पर की।" },
             { q: "मोहनजोदड़ो किस नदी के किनारे स्थित है?", opts: ["गंगा", "यमुना", "सिंधु", "सरस्वती"], ans: 2, exp: "मोहनजोदड़ो सिंधु नदी के किनारे (आधुनिक पाकिस्तान) में स्थित था।" },
@@ -433,7 +652,7 @@
             { q: "तक्षशिला विश्वविद्यालय वर्तमान में किस देश में है?", opts: ["भारत", "नेपाल", "बांग्लादेश", "पाकिस्तान"], ans: 3, exp: "तक्षशिला (Taxila) वर्तमान पाकिस्तान के पंजाब प्रांत में स्थित है।" },
             { q: "महाभारत के रचयिता कौन हैं?", opts: ["वाल्मीकि", "तुलसीदास", "वेदव्यास", "कालिदास"], ans: 2, exp: "महाभारत की रचना वेदव्यास (कृष्ण द्वैपायन) ने की — यह विश्व का सबसे लंबा महाकाव्य है।" },
             { q: "रामायण के रचयिता कौन हैं?", opts: ["वेदव्यास", "वाल्मीकि", "तुलसीदास", "कबीर"], ans: 1, exp: "संस्कृत रामायण के रचयिता महर्षि वाल्मीकि हैं।" },
-            { q: "प्रयाग प्रशस्ति (Allahabad Pillar Inscription) किसकी प्रशंसा में है?", opts: ["अशोक", "चंद्रगुप्त I", "समुद्रगुप्त", "हर्षवर्धन"], ans: 2, exp: "प्रयाग प्रशस्ति हरिषेण ने लिखी थी — इसमें समुद्रगुप्त की विजयों का वर्णन है।" },
+            { q: "प्रयाग प्रशस्ति किसकी प्रशंसा में है?", opts: ["अशोक", "चंद्रगुप्त I", "समुद्रगुप्त", "हर्षवर्धन"], ans: 2, exp: "प्रयाग प्रशस्ति हरिषेण ने लिखी थी — इसमें समुद्रगुप्त की विजयों का वर्णन है।" },
             { q: "कुषाण वंश का सबसे प्रसिद्ध राजा था:", opts: ["कनिष्क", "विम कडफिसेस", "वासुदेव", "हुविष्क"], ans: 0, exp: "कनिष्क कुषाण वंश का सबसे प्रतापी राजा था — इसके काल में बौद्ध धर्म का विस्तार हुआ।" },
             { q: "पहली बौद्ध महासंगीति (Council) कहाँ हुई?", opts: ["पाटलिपुत्र", "वैशाली", "राजगृह", "कश्मीर"], ans: 2, exp: "पहली बौद्ध महासंगीति 483 ई.पू. में राजगृह (राजगीर) में अजातशत्रु के काल में हुई।" },
             { q: "'शून्य' की खोज का श्रेय किसे दिया जाता है?", opts: ["भास्कर", "ब्रह्मगुप्त", "आर्यभट्ट", "वराहमिहिर"], ans: 2, exp: "शून्य (0) की अवधारणा और स्थान-मान प्रणाली का श्रेय आर्यभट्ट को दिया जाता है।" },
@@ -442,7 +661,7 @@
             { q: "हड़प्पा सभ्यता के लोगों का मुख्य व्यवसाय था:", opts: ["शिकार", "कृषि एवं व्यापार", "पशुपालन", "युद्ध"], ans: 1, exp: "सिंधु घाटी सभ्यता के लोग मुख्यतः कृषि, व्यापार और शिल्पकारी करते थे।" },
             { q: "वेदों की कुल संख्या कितनी है?", opts: ["2", "3", "4", "6"], ans: 2, exp: "वेद चार हैं: ऋग्वेद, यजुर्वेद, सामवेद और अथर्ववेद।" },
             { q: "यजुर्वेद में मुख्यतः क्या है?", opts: ["स्तुति मंत्र", "यज्ञ के नियम", "संगीत", "दर्शन"], ans: 1, exp: "यजुर्वेद में यज्ञ और अनुष्ठान के विधि-विधान का वर्णन है।" },
-            { q: "उपनिषदों की कुल संख्या कितनी मानी जाती है?", opts: ["18", "52", "108", "200"], ans: 2, exp: "पारंपरिक रूप से 108 उपनिषद माने जाते हैं, जिनमें 10-13 मुख्य (मुख्य) उपनिषद हैं।" },
+            { q: "उपनिषदों की कुल संख्या कितनी मानी जाती है?", opts: ["18", "52", "108", "200"], ans: 2, exp: "पारंपरिक रूप से 108 उपनिषद माने जाते हैं, जिनमें 10-13 मुख्य उपनिषद हैं।" },
             { q: "अशोक के 'धम्म' की मुख्य विशेषता क्या थी?", opts: ["युद्ध का प्रचार", "नैतिकता और अहिंसा", "जाति व्यवस्था", "पूजा-पाठ"], ans: 1, exp: "अशोक का धम्म नैतिकता, अहिंसा, सहिष्णुता और माता-पिता की सेवा पर आधारित था।" },
             { q: "चंद्रगुप्त मौर्य ने किस विदेशी शासक को हराया?", opts: ["सिकंदर", "सेल्यूकस निकेटर", "डेरियस", "साइरस"], ans: 1, exp: "305 ई.पू. में चंद्रगुप्त मौर्य ने सेल्यूकस निकेटर को हराया और संधि में काबुल तक का क्षेत्र पाया।" },
             { q: "महाभारत का युद्ध कहाँ हुआ था?", opts: ["अयोध्या", "कुरुक्षेत्र", "मथुरा", "हस्तिनापुर"], ans: 1, exp: "महाभारत का युद्ध कुरुक्षेत्र (हरियाणा) में पांडवों और कौरवों के बीच हुआ था।" },
@@ -457,6 +676,10 @@
             { q: "'हर्षचरित' किसने लिखी?", opts: ["कालिदास", "बाणभट्ट", "भवभूति", "वेदव्यास"], ans: 1, exp: "'हर्षचरित' बाणभट्ट की संस्कृत गद्य-रचना है जिसमें हर्षवर्धन का जीवनचरित है।" },
         ];
 
+        const userAnswers = new Array(qs.length).fill(null);
+        let reviewVisible = false;
+
+        // ── RENDER QUESTIONS ──
         function render() {
             const div = document.getElementById('questionsDiv');
             div.innerHTML = '';
@@ -464,72 +687,198 @@
                 const card = document.createElement('div');
                 card.className = 'qcard';
                 card.id = 'q' + i;
-
                 let optHTML = q.opts.map((o, j) => `
       <div class="opt" id="opt_${i}_${j}" onclick="selectOpt(${i},${j})">
         <span class="opt-key">${['A', 'B', 'C', 'D'][j]}</span>
         <span>${o}</span>
       </div>`).join('');
-
                 card.innerHTML = `
       <div class="qtop">
         <div class="qnum">Q${i + 1}.</div>
         <div class="qtext">${q.q}</div>
       </div>
       <div class="options">${optHTML}</div>
-      <div class="explanation" id="exp${i}"><strong>✅ सही उत्तर:</strong> ${q.opts[q.ans]}<br>${q.exp}</div>
-    `;
+      <div class="explanation" id="exp${i}"><strong>✅ सही उत्तर:</strong> ${q.opts[q.ans]}<br>${q.exp}</div>`;
                 div.appendChild(card);
             });
         }
 
-        const userAnswers = new Array(50).fill(null);
-        let submitted = false;
-
+        // ── SELECT OPTION ──
         function selectOpt(qi, oi) {
             if (submitted) return;
+            const wasNull = userAnswers[qi] === null;
             userAnswers[qi] = oi;
-            ['A', 'B', 'C', 'D'].forEach((_, j) => {
-                const el = document.getElementById(`opt_${qi}_${j}`);
-                el.classList.remove('selected');
-            });
+            for (let j = 0; j < 4; j++) document.getElementById(`opt_${qi}_${j}`).classList.remove('selected');
             document.getElementById(`opt_${qi}_${oi}`).classList.add('selected');
+            if (wasNull) updateAnsweredCount();
         }
 
-        function submitTest() {
+        function updateAnsweredCount() {
+            const count = userAnswers.filter(a => a !== null).length;
+            document.getElementById('answeredCount').textContent = count;
+        }
+
+        // ── TIMER ──
+        function formatTime(sec) {
+            const m = Math.floor(sec / 60).toString().padStart(2, '0');
+            const s = (sec % 60).toString().padStart(2, '0');
+            return `${m}:${s}`;
+        }
+
+        function startTimer() {
+            const display = document.getElementById('timerDisplay');
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                display.textContent = formatTime(timeLeft);
+                if (timeLeft <= 300) display.classList.add('danger'); // last 5 min
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    autoSubmit();
+                }
+            }, 1000);
+        }
+
+        function autoSubmit() {
+            document.getElementById('skipWarning').classList.remove('show');
+            doSubmit(true);
+        }
+
+        // ── SUBMIT LOGIC ──
+        function handleSubmitClick() {
+            const skipped = userAnswers.filter(a => a === null).length;
+            if (skipped > 0) {
+                document.getElementById('skipCount').textContent = skipped;
+                document.getElementById('skipWarning').classList.add('show');
+                document.getElementById('skipWarning').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                confirmSubmit();
+            }
+        }
+
+        function hideWarning() {
+            document.getElementById('skipWarning').classList.remove('show');
+        }
+
+        function confirmSubmit() {
+            hideWarning();
+            doSubmit(false);
+        }
+
+        function doSubmit(timedOut) {
             if (submitted) return;
             submitted = true;
+            clearInterval(timerInterval);
+
+            const timeTaken = TOTAL_TIME - timeLeft;
+            const mm = Math.floor(timeTaken / 60);
+            const ss = timeTaken % 60;
+            const timeStr = `${mm}म ${ss}से`;
+
             let correct = 0, wrong = 0, skip = 0;
             qs.forEach((q, i) => {
                 const ua = userAnswers[i];
-                if (ua === null) { skip++; }
-                else if (ua === q.ans) { correct++; document.getElementById(`opt_${i}_${ua}`).classList.add('correct-ans'); }
-                else { wrong++; document.getElementById(`opt_${i}_${ua}`).classList.add('wrong-ans'); document.getElementById(`opt_${i}_${q.ans}`).classList.add('correct-ans'); }
-                document.getElementById('exp' + i).classList.add('show');
+                if (ua === null) skip++;
+                else if (ua === q.ans) correct++;
+                else wrong++;
             });
-            const pct = Math.round((correct / 50) * 100);
+
+            const pct = Math.round((correct / qs.length) * 100);
+
+            // Fill result page
+            let emoji, title;
+            if (pct >= 80) { emoji = '🏆'; title = 'शानदार! बहुत बढ़िया!'; }
+            else if (pct >= 60) { emoji = '👍'; title = 'अच्छा प्रदर्शन!'; }
+            else if (pct >= 40) { emoji = '📚'; title = 'और मेहनत करें!'; }
+            else { emoji = '💪'; title = 'हार मत मानो, कोशिश जारी रखो!'; }
+
+            if (timedOut) { emoji = '⏰'; title = 'समय समाप्त! Auto Submit हुआ।'; }
+
+            document.getElementById('resultEmoji').textContent = emoji;
+            document.getElementById('resultTitle').textContent = title;
+            document.getElementById('resultScoreBig').innerHTML = `${correct} <span>/ ${qs.length}</span>`;
+            document.getElementById('resultPct').textContent = `${pct}% सही`;
             document.getElementById('rCorrect').textContent = correct;
             document.getElementById('rWrong').textContent = wrong;
             document.getElementById('rSkip').textContent = skip;
-            document.getElementById('rPct').textContent = pct + '%';
-            let emoji = pct >= 80 ? '🏆 शानदार!' : pct >= 60 ? '👍 अच्छा!' : pct >= 40 ? '📚 और पढ़ें' : '💪 मेहनत करें!';
-            document.getElementById('resultTitle').textContent = emoji + ' आपका स्कोर: ' + correct + ' / 50 (' + pct + '%)';
-            document.getElementById('resultPanel').classList.add('show');
-            document.getElementById('liveScore').innerHTML = 'Score: <span>' + correct + ' / 50</span>';
-            document.getElementById('submitBtn').disabled = true;
-            document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('rTime').textContent = timedOut ? 'समय खत्म' : timeStr;
+            document.getElementById('pctLabel').textContent = pct + '%';
+
+            // Animate progress bar
+            setTimeout(() => {
+                document.getElementById('pbarFill').style.width = pct + '%';
+            }, 200);
+
+            // Build review section
+            buildReview();
+
+            // Switch pages
+            document.getElementById('testPage').style.display = 'none';
+            document.getElementById('resultPage').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function resetTest() {
+        // ── BUILD REVIEW ──
+        function buildReview() {
+            const div = document.getElementById('reviewDiv');
+            div.innerHTML = '';
+            qs.forEach((q, i) => {
+                const ua = userAnswers[i];
+                const isCorrect = ua === q.ans;
+                const isSkip = ua === null;
+                const card = document.createElement('div');
+                card.className = 'qcard';
+                let statusBadge = isSkip ? '⏭ छोड़ा' : isCorrect ? '✅ सही' : '❌ गलत';
+                let optHTML = q.opts.map((o, j) => {
+                    let cls = 'opt';
+                    if (j === q.ans) cls += ' correct-ans';
+                    else if (j === ua && !isCorrect) cls += ' wrong-ans';
+                    return `<div class="${cls}"><span class="opt-key">${['A', 'B', 'C', 'D'][j]}</span><span>${o}</span></div>`;
+                }).join('');
+                card.innerHTML = `
+      <div class="qtop">
+        <div class="qnum">Q${i + 1}.</div>
+        <div class="qtext">${q.q} <small style="color:#888;font-size:.8rem;">${statusBadge}</small></div>
+      </div>
+      <div class="options">${optHTML}</div>
+      <div class="explanation show"><strong>✅ सही उत्तर:</strong> ${q.opts[q.ans]}<br>${q.exp}</div>`;
+                div.appendChild(card);
+            });
+        }
+
+        // ── TOGGLE REVIEW ──
+        function toggleReview() {
+            reviewVisible = !reviewVisible;
+            const sec = document.getElementById('reviewSection');
+            if (reviewVisible) {
+                sec.classList.add('show');
+                sec.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                sec.classList.remove('show');
+            }
+        }
+
+        // ── RETRY ──
+        function retryTest() {
             submitted = false;
+            timeLeft = TOTAL_TIME;
+            startTime = Date.now();
+            reviewVisible = false;
             userAnswers.fill(null);
-            document.getElementById('resultPanel').classList.remove('show');
+            document.getElementById('timerDisplay').textContent = formatTime(TOTAL_TIME);
+            document.getElementById('timerDisplay').classList.remove('danger');
+            document.getElementById('answeredCount').textContent = '0';
+            document.getElementById('resultPage').style.display = 'none';
+            document.getElementById('reviewSection').classList.remove('show');
+            document.getElementById('testPage').style.display = 'block';
             document.getElementById('submitBtn').disabled = false;
-            document.getElementById('liveScore').innerHTML = 'Score: <span>0 / 50</span>';
             render();
+            startTimer();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // ── INIT ──
         render();
+        startTimer();
     </script>
 </body>
 
